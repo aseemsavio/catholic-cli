@@ -10,7 +10,8 @@ setup(
     license="",
     keywords="",
     install_requires=[
-        "Click>=7"
+        "Click>=7",
+        "rich>=12"
     ],
     entry_points={
         'console_scripts': [
