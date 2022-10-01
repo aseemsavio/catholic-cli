@@ -10,7 +10,16 @@ def show_green_block_text(text: str):
     :param text: Text to be shown on the Terminal.
     :return: None
     """
-    rich.print(Padding(text, (2, 2, 1, 1), style="green"))
+    rich.print(Padding(text, (1, 1, 1, 1), style="green"))
+
+
+def show_blue_bold_block_text(text: str):
+    """
+    Shows the given text in blue, bold color, and as a block.
+    :param text: Text to be shown on the Terminal.
+    :return: None
+    """
+    rich.print(Padding(text, (1, 0, 0, 2), style="blue bold"))
 
 
 def show_error_message(error_message: str):
