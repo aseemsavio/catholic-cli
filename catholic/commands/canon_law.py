@@ -2,5 +2,6 @@ import click
 
 
 @click.command()
-def canon():
+@click.pass_context
+def canon(ctx: click.Context):
     print("Canon Law")

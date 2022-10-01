@@ -2,5 +2,6 @@ import click
 
 
 @click.command()
-def missal():
+@click.pass_context
+def missal(ctx: click.Context):
     print("Roman Missal")
