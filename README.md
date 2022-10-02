@@ -40,13 +40,13 @@ Here are some example commands.
 ### Catechism
 
 ```
-> catholic catechism --paragraph 101
+catholic catechism --paragraph 101
 ```
 
 The tool also allows a short form for power users.
 
 ```
-> catholic c --p 101
+catholic c --p 101
 ```
 
 You can provide a query string _instead of_ an integer to `--p` or `--paragraph` like so:
@@ -58,19 +58,19 @@ catholic catechism --p 1,2,4-6
 ### Roman Missal
 
 ```
-> catholic missal --p 101
+catholic missal --p 101
 ```
 
 Shortform for the same would be:
 
 ```
-> catholic m --p 101
+catholic m --p 101
 ```
 
 You can query the Missal like so:
 
 ```
-> catholic missal --p 1,2,3,77-79
+catholic missal --p 1,2,3,77-79
 ```
 
 ### Canon Law
@@ -82,13 +82,13 @@ catholic canon --p 101
 Shortform for the same would be:
 
 ```
-> catholic cl --p 101
+catholic cl --p 101
 ```
 
 You can query the Canon Law like so:
 
 ```
-> catholic canon --p 1,2,3,77-79
+catholic canon --p 1,2,3,77-79
 ```
 
 
