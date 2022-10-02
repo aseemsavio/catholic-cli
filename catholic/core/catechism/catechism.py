@@ -13,6 +13,6 @@ def execute_catechism_command(paragraph):
         try:
             catechism_para = get_catechism_by_paragraph(paragraph, catechism_dict)["text"]
             show_markdown(catechism_para)
-        except IndexError as e:
+        except IndexError:
             error_message = f"🙁 The Catechism does not have a paragraph with ID: {paragraph}"
             show_error_message(error_message)

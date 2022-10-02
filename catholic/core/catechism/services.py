@@ -1,4 +1,4 @@
-def get_catechism_by_paragraph(paragraph_number: int, catechism: dict):
+def get_catechism_by_paragraph(paragraph_number: int, catechism: list[dict]):
     """
     Returns the contents of the paragraph in mark down format.
     :param catechism: Dictionary containing The Catechism of The Catholic Church.
