@@ -9,11 +9,13 @@ def execute_catechism_command(paragraph):
     :return: None
     """
     catechism_dict = load_pickle("pickles/catechism.pickle")
-    if paragraph:
+    if paragraph.isdigit():
         try:
-            catechism_para = get_catechism_by_paragraph(paragraph, catechism_dict)
+            catechism_para = get_catechism_by_paragraph(int(paragraph), catechism_dict)
             show_blue_bold_block_text(f"Catechism Paragraph: {catechism_para['id']}")
             show_markdown(catechism_para["text"])
         except IndexError:
             error_message = f"🙁 The Catechism does not have a paragraph with ID: {paragraph}"
             show_error_message(error_message)
+    else:
+        print(paragraph)
