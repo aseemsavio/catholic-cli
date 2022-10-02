@@ -12,27 +12,30 @@ Catholic information. The tool currently has the following functionalities:
 The general syntax for using the tool is as follows.
 
 ```
-> catholic <resource> <options>
+catholic <resource> <options>
 ```
-
-For example, the following command gives you paragraph 101 of the Catechism.
+A resource is either `catechism`, or `canon` or `missal`. An example for an option would be 
+`--paragraph` or it's shortform `--p`. You give values for an option like so: `--p 101`, where `101` is the value passed 
+to the option `--p`.
+ 
+The following command gives you paragraph 101 of the Catechism.
 
 ```
-> catholic catechism --p 101
+catholic catechism --p 101
 ```
 
 The option `--p` or `--paragraph` takes in an integer (`101`) or a query string (`1,2,3-6` or `1,2` or `3-5`).
 The query string can be a comma separated integers and, or ranges. For example:
 
 ```
-> catholic catechism --p 1,2,4-6
+catholic catechism --p 1,2,4-6
 ```
 
 The above query would display paragraphs 1, 2, 4, 5, and 6. If you intend to add spaces in the query string, you may
 do so within double quotes as follows.
 
 ```
-> catholic catechism --p "1, 2, 4 - 6"
+catholic catechism --p "1, 2, 4 - 6"
 ```
 
 Here are some example commands.
