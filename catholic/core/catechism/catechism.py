@@ -1,5 +1,5 @@
 from catholic.core.catechism.services import get_catechism_by_paragraph
-from catholic.core.utils import load_pickle, show_markdown, show_error_message
+from catholic.core.utils import load_pickle, show_markdown, show_error_message, show_blue_bold_block_text
 
 
 def execute_catechism_command(paragraph):
@@ -11,8 +11,9 @@ def execute_catechism_command(paragraph):
     catechism_dict = load_pickle("pickles/catechism.pickle")
     if paragraph:
         try:
-            catechism_para = get_catechism_by_paragraph(paragraph, catechism_dict)["text"]
-            show_markdown(catechism_para)
+            catechism_para = get_catechism_by_paragraph(paragraph, catechism_dict)
+            show_blue_bold_block_text(f"Catechism Paragraph: {catechism_para['id']}")
+            show_markdown(catechism_para["text"])
         except IndexError:
             error_message = f"🙁 The Catechism does not have a paragraph with ID: {paragraph}"
             show_error_message(error_message)
