@@ -16,7 +16,7 @@ def remove_white_spaces(text: str) -> str:
     return "".join(text.split())
 
 
-def destruct_comma_separated_string(comma_separated_string) -> list[str]:
+def destructure_comma_separated_string(comma_separated_string) -> list[str]:
     """
     Destructs the given string with commas into a list of strings.
     :param comma_separated_string:
@@ -48,14 +48,10 @@ def range_string_to_int_list(range_string: str) -> list[int]:
     return [*range(int(start), int(end) + 1)]
 
 
-def get_uniques_as_list(list_with_duplicates: list[int]) -> list[int]:
+def get_uniques_as_sorted_list(list_with_duplicates: list[int]) -> list[int]:
     """
 
     :param list_with_duplicates:
     :return:
     """
-    return list(set(list_with_duplicates))
-
-
-print(range_or_single_digit_list("1"))
-print(range_or_single_digit_list("1-5"))
+    return sorted(list(set(list_with_duplicates)))

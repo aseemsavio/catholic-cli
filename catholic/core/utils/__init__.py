@@ -5,10 +5,10 @@ __all__ = [
     "show_markdown",
     "show_blue_bold_block_text",
     "remove_white_spaces",
-    "destruct_comma_separated_string",
+    "destructure_comma_separated_string",
     "range_or_single_digit_list",
     "range_string_to_int_list",
-    "get_uniques_as_list"
+    "get_uniques_as_sorted_list"
 ]
 
 from catholic.core.utils.display_utils import *
