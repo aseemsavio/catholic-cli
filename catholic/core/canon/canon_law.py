@@ -3,17 +3,21 @@ from catholic.core.utils import load_pickle, show_error_message, show_markdown, 
 from catholic.core.utils.query import decode_query
 
 
-def execute_canon_command(law):
+def execute_canon_command(law, search):
     canon_law_dict = load_pickle("pickles/canon.pickle")
-    if law.isdigit():
-        _display_canon_law(canon_law_dict, law)
-    else:
-        try:
-            for individual_law in decode_query(law):
-                _display_canon_law(canon_law_dict, individual_law)
-        except ValueError:
-            error_message = f"🙁 Could not decode the query: {law}"
-            show_error_message(error_message)
+    if law:
+        if law.isdigit():
+            _display_canon_law(canon_law_dict, law)
+        else:
+            try:
+                for individual_law in decode_query(law):
+                    _display_canon_law(canon_law_dict, individual_law)
+            except ValueError:
+                error_message = f"🙁 Could not decode the query: {law}"
+                show_error_message(error_message)
+    elif search:
+        print(search)
+        pass
 
 
 def _display_canon_law(canon_law_dict, law):
