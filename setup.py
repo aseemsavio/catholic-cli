@@ -1,9 +1,13 @@
 from setuptools import setup
 
+with open("README.md", "r") as readme_file:
+    readme = readme_file.read()
+
 setup(
     name="catholic-cli",
     version="0.0.1",
     description="A Command Line Utility for Accessing static Information Related to The Catholic Church",
+    long_description=readme,
     author="Aseem Savio",
     author_email="aseemsavio3@gmail.com",
     url="",
