@@ -1,5 +1,7 @@
 # 🇻🇦catholic-cli
 
+[![Catholic CLI](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/aseemsavio/catholic-cli)
+
 The `catholic-cli` is the Swiss Army Knife Command Line Utility for quickly accessing
 Catholic information. The tool currently has the following functionalities:
 
