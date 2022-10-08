@@ -18,8 +18,4 @@ def get_catechism_paragraphs_with_given_substring(substring: str, catechism: lis
     :param catechism:
     :return:
     """
-    matching_catechism_laws = []
-    for para in catechism:
-        if string_contains(substring, para["text"]):
-            matching_catechism_laws.append(para["id"])
-    return matching_catechism_laws
+    return [para["id"] for para in catechism if string_contains(substring, para["text"])]
