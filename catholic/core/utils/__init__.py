@@ -8,7 +8,8 @@ __all__ = [
     "destructure_comma_separated_string",
     "range_or_single_digit_list",
     "range_string_to_int_list",
-    "get_uniques_as_sorted_list"
+    "get_uniques_as_sorted_list",
+    "string_contains"
 ]
 
 from catholic.core.utils.display_utils import *

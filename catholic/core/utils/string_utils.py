@@ -5,6 +5,7 @@ Example queries:
 1-3         x to y
 1,2,3-5     combination of the above
 """
+import re
 
 
 def remove_white_spaces(text: str) -> str:
@@ -55,3 +56,16 @@ def get_uniques_as_sorted_list(list_with_duplicates: list[int]) -> list[int]:
     :return:
     """
     return sorted(list(set(list_with_duplicates)))
+
+
+def string_contains(substring: str, text: str) -> bool:
+    """
+    Returns True if the substring is in the given text. This is case insensitive
+    :param substring: Substring to look for in the text
+    :param text: The full text to run the search on
+    :return: bool
+    """
+    if re.search(substring, text, re.IGNORECASE):
+        return True
+    else:
+        return False

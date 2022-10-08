@@ -1,4 +1,4 @@
-from catholic.core.canon.services import get_canon_law_by_id
+from catholic.core.canon.services import get_canon_law_by_id, get_canon_laws_with_given_substring
 from catholic.core.utils import load_pickle, show_error_message, show_markdown, show_blue_bold_block_text
 from catholic.core.utils.query import decode_query
 
@@ -16,8 +16,14 @@ def execute_canon_command(law, search):
                 error_message = f"🙁 Could not decode the query: {law}"
                 show_error_message(error_message)
     elif search:
-        print(search)
-        pass
+        try:
+            matched_laws = get_canon_laws_with_given_substring(search, canon_law_dict)
+            for matched_law in matched_laws:
+                _display_canon_law(canon_law_dict, matched_law)
+            show_blue_bold_block_text(f"✅ Showing {len(matched_laws)} Canon Laws matching the substring - `{search}`.")
+        except ValueError:
+            error_message = f"🙁 Could not decode the query: {law}"
+            show_error_message(error_message)
 
 
 def _display_canon_law(canon_law_dict, law):

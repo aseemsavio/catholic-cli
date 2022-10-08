@@ -96,5 +96,15 @@ You can query the Canon Law like so:
 catholic canon --p 1,2,3,77-79
 ```
 
+You can search the Canon Law for words or phrases like so. The short form `--s` can be used
+instead of `--search`.
 
+```
+catholic canon --search eucharist
+```
+For searching phrases that include spaces, they must be included within quotes.
+
+```
+catholic c --s "child of"
+```
 
