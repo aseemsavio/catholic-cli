@@ -22,6 +22,15 @@ def show_blue_bold_block_text(text: str):
     rich.print(Padding(text, (1, 0, 0, 4), style="blue bold"))
 
 
+def show_red_bold_block_text(text: str):
+    """
+    Shows the given text in red, bold color, and as a block.
+    :param text: Text to be shown on the Terminal.
+    :return: None
+    """
+    rich.print(Padding(text, (1, 0, 0, 4), style="red bold"))
+
+
 def show_error_message(error_message: str):
     """
     Shows an error message on the console.
