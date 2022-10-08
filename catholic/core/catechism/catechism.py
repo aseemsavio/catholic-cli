@@ -24,15 +24,15 @@ def execute_catechism_command(paragraph, search):
                 show_error_message(error_message)
     elif search:
         try:
-            matched_catechism_para = get_catechism_paragraphs_with_given_substring(search, catechism_dict)
-            for para in matched_catechism_para:
+            matched_catechism_paragraphs = get_catechism_paragraphs_with_given_substring(search, catechism_dict)
+            for para in matched_catechism_paragraphs:
                 _display_catechism_paragraph(catechism_dict, para)
-            if len(matched_catechism_para) > 0:
+            if len(matched_catechism_paragraphs) > 0:
                 show_blue_bold_block_text(
-                    f"✅ Showing {len(matched_catechism_para)} Catechism paragraphs matching substring -`{search}`.")
+                    f"✅ Showing {len(matched_catechism_paragraphs)} Catechism paragraph(s) matching substring -`{search}`.")
             else:
                 show_red_bold_block_text(
-                    f"❌ Showing {len(matched_catechism_para)} Catechism paragraphs matching substring -`{search}`.")
+                    f"❌ Showing {len(matched_catechism_paragraphs)} Catechism paragraphs matching substring -`{search}`.")
         except ValueError:
             error_message = f"🙁 Could not decode the search string: {search}"
             show_error_message(error_message)

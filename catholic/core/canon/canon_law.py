@@ -23,7 +23,7 @@ def execute_canon_command(law, search):
                 _display_canon_law(canon_law_dict, matched_law)
             if len(matched_laws) > 0:
                 show_blue_bold_block_text(
-                    f"✅ Showing {len(matched_laws)} Canon Laws matching the substring - `{search}`.")
+                    f"✅ Showing {len(matched_laws)} Canon Law(s) matching the substring - `{search}`.")
             else:
                 show_red_bold_block_text(
                     f"❌ Showing {len(matched_laws)} Canon Laws matching the substring - `{search}`.")
