@@ -11,11 +11,21 @@ def get_catechism_by_paragraph(paragraph_number: int, catechism: list[dict]):
     return [para for para in catechism if para["id"] == paragraph_number][0]
 
 
-def get_catechism_paragraphs_with_given_substring(substring: str, catechism: list[dict]) -> list[int]:
+def get_catechism_paragraphs_by_paragraph_ids(paragraph_ids: list[int], catechism: list[dict]):
+    """
+    Returns all the Catechism Paragraphs in the given ID list.
+    :param paragraph_ids:
+    :param catechism:
+    :return:
+    """
+    return [paragraph for paragraph in catechism if paragraph["id"] in paragraph_ids]
+
+
+def get_catechism_paragraphs_with_given_substring(substring: str, catechism: list[dict]) -> list[dict]:
     """
 
     :param substring:
     :param catechism:
     :return:
     """
-    return [para["id"] for para in catechism if string_contains(substring, para["text"])]
+    return [para for para in catechism if string_contains(substring, para["text"])]
