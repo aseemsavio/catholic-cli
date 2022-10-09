@@ -18,19 +18,17 @@ def execute_catechism_command(paragraph, search):
             _display_catechism_paragraph(catechism_dict, paragraph)
         else:
             try:
-                # for individual_para in decode_query(paragraph):
-                #     _display_catechism_paragraph(catechism_dict, individual_para)
                 paragraph_ids = decode_query(paragraph)
                 matched_paragraphs = get_catechism_paragraphs_by_paragraph_ids(paragraph_ids, catechism_dict)
                 _display_catechism_paragraphs(matched_paragraphs)
                 if len(matched_paragraphs) > 0:
                     show_blue_bold_block_text(
                         f"✅ Showing {len(matched_paragraphs)} Catechism paragraph(s) matching paragraph ID(s) "
-                        f"- {paragraph_ids}.")
+                        f"- {[p['id'] for p in matched_paragraphs]}.")
                 else:
                     show_red_bold_block_text(
                         f"❌ Showing {len(matched_paragraphs)} Catechism paragraphs matching paragraph IDs "
-                        f"- {paragraph_ids}.")
+                        f"- {[p['id'] for p in matched_paragraphs]}.")
             except ValueError:
                 error_message = f"🙁 Could not decode the query: {paragraph}"
                 show_error_message(error_message)

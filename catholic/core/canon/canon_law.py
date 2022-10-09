@@ -12,19 +12,17 @@ def execute_canon_command(law, search):
             _display_canon_law(canon_law_dict, law)
         else:
             try:
-                # for individual_law in decode_query(law):
-                #     _display_canon_law(canon_law_dict, individual_law)
                 law_ids = decode_query(law)
                 matched_laws: list[dict] = get_canon_law_paragraphs_by_paragraph_ids(law_ids, canon_law_dict)
                 _display_canon_laws(matched_laws)
                 if len(matched_laws) > 0:
                     show_blue_bold_block_text(
                         f"✅ Showing {len(matched_laws)} Canon Law(s) matching Law ID(s) "
-                        f"- {law_ids}.")
+                        f"- {[p['id'] for p in matched_laws]}.")
                 else:
                     show_red_bold_block_text(
                         f"❌ Showing {len(matched_laws)} Canon Law(s) matching Law IDs "
-                        f"- {law_ids}.")
+                        f"- {[p['id'] for p in matched_laws]}.")
             except ValueError:
                 error_message = f"🙁 Could not decode the query: {law}"
                 show_error_message(error_message)
