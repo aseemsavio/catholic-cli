@@ -28,8 +28,7 @@ def execute_missal_command(missal_id, search):
                 show_error_message(error_message)
     elif search:
         matched_missal_paragraphs = get_roman_missal_paragraphs_with_given_substring(search, missal_dict)
-        missal_ids = decode_query(missal_id)
-        matched_paragraphs = get_roman_missal_paragraphs_by_numbers(missal_ids, missal_dict)
+        matched_paragraphs = get_roman_missal_paragraphs_by_numbers(matched_missal_paragraphs, missal_dict)
         _display_missal_paragraphs(matched_paragraphs)
         if len(matched_missal_paragraphs) > 0:
             show_blue_bold_block_text(
