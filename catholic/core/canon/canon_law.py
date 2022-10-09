@@ -1,4 +1,5 @@
-from catholic.core.canon.services import get_canon_law_by_id, get_canon_laws_with_given_substring
+from catholic.core.canon.services import get_canon_law_by_id, get_canon_laws_with_given_substring, \
+    get_canon_law_paragraphs_by_paragraph_ids
 from catholic.core.utils import load_pickle, show_error_message, show_markdown, show_blue_bold_block_text, \
     show_red_bold_block_text
 from catholic.core.utils.query import decode_query
@@ -11,16 +12,26 @@ def execute_canon_command(law, search):
             _display_canon_law(canon_law_dict, law)
         else:
             try:
-                for individual_law in decode_query(law):
-                    _display_canon_law(canon_law_dict, individual_law)
+                # for individual_law in decode_query(law):
+                #     _display_canon_law(canon_law_dict, individual_law)
+                law_ids = decode_query(law)
+                matched_laws: list[dict] = get_canon_law_paragraphs_by_paragraph_ids(law_ids, canon_law_dict)
+                _display_canon_laws(matched_laws)
+                if len(matched_laws) > 0:
+                    show_blue_bold_block_text(
+                        f"✅ Showing {len(matched_laws)} Canon Law(s) matching Law ID(s) "
+                        f"- {law_ids}.")
+                else:
+                    show_red_bold_block_text(
+                        f"❌ Showing {len(matched_laws)} Canon Law(s) matching Law IDs "
+                        f"- {law_ids}.")
             except ValueError:
                 error_message = f"🙁 Could not decode the query: {law}"
                 show_error_message(error_message)
     elif search:
         try:
             matched_laws = get_canon_laws_with_given_substring(search, canon_law_dict)
-            for matched_law in matched_laws:
-                _display_canon_law(canon_law_dict, matched_law)
+            _display_canon_laws(matched_laws)
             if len(matched_laws) > 0:
                 show_blue_bold_block_text(
                     f"✅ Showing {len(matched_laws)} Canon Law(s) matching the substring - `{search}`.")
@@ -45,3 +56,19 @@ def _display_canon_law(canon_law_dict, law):
     except IndexError:
         error_message = f"🙁 There is no Canon Law with ID: {law}"
         show_error_message(error_message)
+
+
+def _display_canon_laws(canon_law_dict: list[dict]):
+    """
+
+    :param canon_law_dict:
+    :return:
+    """
+    for canon_law in canon_law_dict:
+        if "text" in canon_law:
+            show_blue_bold_block_text(f"Canon Law: {canon_law['id']}")
+            show_markdown(canon_law["text"])
+        elif "sections" in canon_law:
+            for section in canon_law["sections"]:
+                show_blue_bold_block_text(f"Canon Law: {canon_law['id']} :: §{section['id']}")
+                show_markdown(section["text"])
