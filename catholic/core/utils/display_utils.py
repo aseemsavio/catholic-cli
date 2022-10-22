@@ -4,7 +4,7 @@ from rich.markdown import Markdown
 from rich.padding import Padding
 
 
-def show_green_block_text(text: str):
+def green_text(text: str):
     """
     Shows the given text in green color, and as a block.
     :param text: Text to be shown on the Terminal.
@@ -13,7 +13,7 @@ def show_green_block_text(text: str):
     rich.print(Padding(text, (1, 1, 1, 1), style="green"))
 
 
-def show_blue_bold_block_text(text: str):
+def blue_text(text: str):
     """
     Shows the given text in blue, bold color, and as a block.
     :param text: Text to be shown on the Terminal.
@@ -22,7 +22,7 @@ def show_blue_bold_block_text(text: str):
     rich.print(Padding(text, (1, 0, 0, 4), style="blue bold"))
 
 
-def show_red_bold_block_text(text: str):
+def red_text(text: str):
     """
     Shows the given text in red, bold color, and as a block.
     :param text: Text to be shown on the Terminal.
@@ -31,7 +31,7 @@ def show_red_bold_block_text(text: str):
     rich.print(Padding(text, (1, 0, 0, 4), style="red bold"))
 
 
-def show_error_message(error_message: str):
+def error(error_message: str):
     """
     Shows an error message on the console.
     :param error_message: Error message to show
@@ -40,7 +40,7 @@ def show_error_message(error_message: str):
     rich.print(Padding(error_message, (2, 2, 1, 1), style="red"))
 
 
-def show_markdown(text: str):
+def markdown(text: str):
     """
     Shows the Markdown on the console.
     :param text: Markdown to show

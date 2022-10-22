@@ -6,13 +6,13 @@ with open("README.md", "r") as readme_file:
 setup(
     name="catholic-cli",
     version="0.0.1",
-    description="A Command Line Utility for Accessing static Information Related to The Catholic Church",
+    description="A Command Line Utility for Accessing Information Related to The Catholic Church",
     long_description=readme,
     author="Aseem Savio",
     author_email="aseemsavio3@gmail.com",
     url="",
     license="",
-    keywords="",
+    keywords="christianity, catholicism, catholic, christian, religion, cli",
     install_requires=[
         "Click>=7",
         "rich>=12"

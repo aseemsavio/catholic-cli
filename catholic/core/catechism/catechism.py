@@ -1,7 +1,7 @@
 from catholic.core.catechism.services import get_catechism_by_paragraph, get_catechism_paragraphs_with_given_substring, \
     get_catechism_paragraphs_by_paragraph_ids
-from catholic.core.utils import load_pickle, show_markdown, show_error_message, show_blue_bold_block_text, \
-    show_red_bold_block_text
+from catholic.core.utils import load_pickle, markdown, error, blue_text, \
+    red_text
 from catholic.core.utils.query import decode_query
 
 
@@ -22,41 +22,41 @@ def execute_catechism_command(paragraph, search):
                 matched_paragraphs = get_catechism_paragraphs_by_paragraph_ids(paragraph_ids, catechism_dict)
                 _display_catechism_paragraphs(matched_paragraphs)
                 if len(matched_paragraphs) > 0:
-                    show_blue_bold_block_text(
+                    blue_text(
                         f"✅ Showing {len(matched_paragraphs)} Catechism paragraph(s) matching paragraph ID(s) "
                         f"- {[p['id'] for p in matched_paragraphs]}.")
                 else:
-                    show_red_bold_block_text(
+                    red_text(
                         f"❌ Showing {len(matched_paragraphs)} Catechism paragraphs matching paragraph IDs "
                         f"- {[p['id'] for p in matched_paragraphs]}.")
             except ValueError:
                 error_message = f"🙁 Could not decode the query: {paragraph}"
-                show_error_message(error_message)
+                error(error_message)
     elif search:
         try:
             matched_catechism_paragraphs = get_catechism_paragraphs_with_given_substring(search, catechism_dict)
             _display_catechism_paragraphs(matched_catechism_paragraphs)
             if len(matched_catechism_paragraphs) > 0:
-                show_blue_bold_block_text(
+                blue_text(
                     f"✅ Showing {len(matched_catechism_paragraphs)} Catechism paragraph(s) matching substring "
                     f"-`{search}`.")
             else:
-                show_red_bold_block_text(
+                red_text(
                     f"❌ Showing {len(matched_catechism_paragraphs)} Catechism paragraphs matching substring "
                     f"-`{search}`.")
         except ValueError:
             error_message = f"🙁 Could not decode the search string: {search}"
-            show_error_message(error_message)
+            error(error_message)
 
 
 def _display_catechism_paragraph(catechism_dict, paragraph):
     try:
         catechism_para = get_catechism_by_paragraph(int(paragraph), catechism_dict)
-        show_blue_bold_block_text(f"Catechism Paragraph: {catechism_para['id']}")
-        show_markdown(catechism_para["text"])
+        blue_text(f"Catechism Paragraph: {catechism_para['id']}")
+        markdown(catechism_para["text"])
     except IndexError:
         error_message = f"🙁 The Catechism does not have a paragraph with ID: {paragraph}"
-        show_error_message(error_message)
+        error(error_message)
 
 
 def _display_catechism_paragraphs(paragraphs: list[dict]):
@@ -66,5 +66,5 @@ def _display_catechism_paragraphs(paragraphs: list[dict]):
     :return:
     """
     for paragraph in paragraphs:
-        show_blue_bold_block_text(f"Catechism Paragraph: {paragraph['id']}")
-        show_markdown(paragraph["text"])
+        blue_text(f"Catechism Paragraph: {paragraph['id']}")
+        markdown(paragraph["text"])
