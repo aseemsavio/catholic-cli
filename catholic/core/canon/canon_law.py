@@ -1,12 +1,12 @@
 from catholic.core.canon.services import get_canon_law_by_id, get_canon_laws_with_given_substring, \
     get_canon_law_paragraphs_by_paragraph_ids
-from catholic.core.utils.files import load_pickle
+from catholic.core.utils.files import load_pickle_by_name
 from catholic.core.utils.console import error, markdown, blue_text, red_text
 from catholic.core.utils.query import decode_query
 
 
 def execute_canon_command(law, search):
-    canon_law_dict = load_pickle("pickles/canon.pickle")
+    canon_law_dict = load_pickle_by_name("canon.pickle")
     if law:
         if law.isdigit():
             _display_canon_law(canon_law_dict, law)

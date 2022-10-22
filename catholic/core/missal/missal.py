@@ -1,12 +1,12 @@
 from catholic.core.missal.services import get_roman_missal_by_number, \
     get_roman_missal_paragraphs_with_given_substring, get_roman_missal_paragraphs_by_numbers
-from catholic.core.utils.files import load_pickle
+from catholic.core.utils.files import load_pickle_by_name
 from catholic.core.utils.console import markdown, error, blue_text, red_text
 from catholic.core.utils.query import decode_query
 
 
 def execute_missal_command(missal_id, search):
-    missal_dict = load_pickle("pickles/girm.pickle")
+    missal_dict = load_pickle_by_name("girm.pickle")
     if missal_id:
         if missal_id.isdigit():
             _display_missal_paragraph(missal_dict, missal_id)

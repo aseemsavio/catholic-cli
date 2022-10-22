@@ -1,6 +1,6 @@
 from catholic.core.catechism.services import get_catechism_by_paragraph, \
     get_catechism_paragraphs_with_given_substring, get_catechism_paragraphs_by_paragraph_ids
-from catholic.core.utils.files import load_pickle
+from catholic.core.utils.files import load_pickle_by_name
 from catholic.core.utils.console import markdown, error, blue_text, red_text
 
 from catholic.core.utils.query import decode_query
@@ -13,7 +13,7 @@ def execute_catechism_command(paragraph, search):
     :param paragraph: Paragraph_number
     :return: None
     """
-    catechism_dict = load_pickle("pickles/catechism.pickle")
+    catechism_dict = load_pickle_by_name("catechism.pickle")
     if paragraph:
         if paragraph.isdigit():
             _display_catechism_paragraph(catechism_dict, paragraph)
