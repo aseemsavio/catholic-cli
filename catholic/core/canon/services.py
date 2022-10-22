@@ -1,4 +1,4 @@
-from catholic.core.utils import string_contains
+from catholic.core.utils.strings import string_contains
 
 
 def get_canon_law_by_id(law_id: int, canon: list[dict]):

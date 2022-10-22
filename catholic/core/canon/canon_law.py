@@ -1,7 +1,7 @@
 from catholic.core.canon.services import get_canon_law_by_id, get_canon_laws_with_given_substring, \
     get_canon_law_paragraphs_by_paragraph_ids
-from catholic.core.utils import load_pickle, error, markdown, blue_text, \
-    red_text
+from catholic.core.utils.files import load_pickle
+from catholic.core.utils.console import error, markdown, blue_text, red_text
 from catholic.core.utils.query import decode_query
 
 

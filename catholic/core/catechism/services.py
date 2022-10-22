@@ -1,4 +1,4 @@
-from catholic.core.utils import string_contains
+from catholic.core.utils.strings import string_contains
 
 
 def get_catechism_by_paragraph(paragraph_number: int, catechism: list[dict]):

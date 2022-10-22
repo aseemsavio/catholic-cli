@@ -1,7 +1,7 @@
-from catholic.core.missal.services import get_roman_missal_by_number, get_roman_missal_paragraphs_with_given_substring, \
-    get_roman_missal_paragraphs_by_numbers
-from catholic.core.utils import load_pickle, markdown, error, blue_text, \
-    red_text
+from catholic.core.missal.services import get_roman_missal_by_number, \
+    get_roman_missal_paragraphs_with_given_substring, get_roman_missal_paragraphs_by_numbers
+from catholic.core.utils.files import load_pickle
+from catholic.core.utils.console import markdown, error, blue_text, red_text
 from catholic.core.utils.query import decode_query
 
 

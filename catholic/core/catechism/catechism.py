@@ -1,7 +1,8 @@
-from catholic.core.catechism.services import get_catechism_by_paragraph, get_catechism_paragraphs_with_given_substring, \
-    get_catechism_paragraphs_by_paragraph_ids
-from catholic.core.utils import load_pickle, markdown, error, blue_text, \
-    red_text
+from catholic.core.catechism.services import get_catechism_by_paragraph, \
+    get_catechism_paragraphs_with_given_substring, get_catechism_paragraphs_by_paragraph_ids
+from catholic.core.utils.files import load_pickle
+from catholic.core.utils.console import markdown, error, blue_text, red_text
+
 from catholic.core.utils.query import decode_query
 
 

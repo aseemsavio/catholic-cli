@@ -1,5 +1,5 @@
-from catholic.core.utils import remove_white_spaces, destructure_comma_separated_string, range_or_single_digit_list, \
-    get_uniques_as_sorted_list
+from catholic.core.utils.strings import remove_white_spaces, destructure_comma_separated_string, \
+    range_or_single_digit_list, get_uniques_as_sorted_list
 
 
 def decode_query(query: str) -> list[int]:
