@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 with open("README.md", "r") as readme_file:
     readme = readme_file.read()
@@ -10,9 +10,15 @@ setup(
     long_description=readme,
     author="Aseem Savio",
     author_email="aseemsavio3@gmail.com",
-    url="",
-    license="",
+    url="https://github.com/aseemsavio/catholic-cli/blob/master/README.md",
+    license="MIT",
     keywords="christianity, catholicism, catholic, christian, religion, cli",
+    packages=find_packages(),
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
     install_requires=[
         "Click>=7",
         "rich>=12"
