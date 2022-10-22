@@ -16,6 +16,10 @@ setup(
     keywords="christianity, catholicism, catholic, christian, religion, cli",
     packages=find_packages(),
     include_package_data=True,
+    data_files=[("catholic/pickles", ["catholic/pickles/canon.pickle",
+                                      "catholic/pickles/catechism.pickle",
+                                      "catholic/pickles/girm.pickle"
+                                      ])],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
