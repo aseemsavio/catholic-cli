@@ -8,6 +8,7 @@ setup(
     version="0.0.1",
     description="A Command Line Utility for Accessing Information Related to The Catholic Church",
     long_description=readme,
+    long_description_content_type='text/markdown',
     author="Aseem Savio",
     author_email="aseemsavio3@gmail.com",
     url="https://github.com/aseemsavio/catholic-cli/blob/master/README.md",

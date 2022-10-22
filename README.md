@@ -79,41 +79,31 @@ For searching phrases that include spaces, they must be included within quotes.
 
 ```
 catholic c --s "child of"
-
-
 ```
 
 ### Roman Missal
 
 ```
-
 catholic missal --p 101
-
 ```
 
 Shortform for the same would be:
 
 ```
-
 catholic m --p 101
-
 ```
 
 You can query the Missal like so:
 
 ```
-
 catholic missal --p 1,2,3,77-79
-
 ```
 
 You can search the Missal for words or phrases like so. The short form `--s` can be used
 instead of `--search`.
 
 ```
-
 catholic missal --search eucharist
-
 ```
 
 For searching phrases that include spaces, they must be included within quotes.
@@ -152,4 +142,3 @@ For searching phrases that include spaces, they must be included within quotes.
 ```
 catholic cl --s "child of"
 ```
-
