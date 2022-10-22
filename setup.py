@@ -5,7 +5,7 @@ with open("README.md", "r") as readme_file:
 
 setup(
     name="catholic-cli",
-    version="0.0.5",
+    version="0.0.6",
     description="A Command Line Utility for Accessing Information Related to The Catholic Church",
     long_description=readme,
     long_description_content_type='text/markdown',
@@ -15,6 +15,7 @@ setup(
     license="MIT",
     keywords="christianity, catholicism, catholic, christian, religion, cli",
     packages=find_packages(),
+    include_package_data=True,
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
