@@ -1,7 +1,6 @@
-import os
 import pickle
 
-from pickles import read_pickle
+from catholic.pickles import read_pickle
 
 
 def load_pickle(pickle_name: str):

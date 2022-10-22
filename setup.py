@@ -5,7 +5,7 @@ with open("README.md", "r") as readme_file:
 
 setup(
     name="catholic-cli",
-    version="0.0.4",
+    version="0.0.5",
     description="A Command Line Utility for Accessing Information Related to The Catholic Church",
     long_description=readme,
     long_description_content_type='text/markdown',
