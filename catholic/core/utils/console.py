@@ -90,17 +90,17 @@ def show_matched_para_count(resource: str, matched: list[dict], para: bool = Fal
 
     if para:
         if count == 0:
-            red_text(f"{emoji('❌')} There are no results for the requested paragraph ID(s).")
+            red_text(f"{emoji('❌')}  There are no results for the requested paragraph ID(s).")
         elif count == 1:
-            blue_text(f"{emoji('✅')} Showing 1 {resource} paragraph matching ID: {matched[0]['id']}")
+            blue_text(f"{emoji('✅')}  Showing 1 {resource} paragraph matching ID: {matched[0]['id']}")
         elif count > 1:
             blue_text(
-                f"{emoji('✅')} Showing {count} {resource} paragraphs matching IDs - {[p['id'] for p in matched]}.")
+                f"{emoji('✅')}  Showing {count} {resource} paragraphs matching IDs - {[p['id'] for p in matched]}.")
     elif search_str:
         if count == 0:
-            red_text(f"{emoji('❌')} There are no results for the requested search text.")
+            red_text(f"{emoji('❌')}  There are no results for the requested search text.")
         elif count == 1:
-            blue_text(f"{emoji('✅')} Showing 1 {resource} paragraph matching the requested search text")
+            blue_text(f"{emoji('✅')}  Showing 1 {resource} paragraph matching the requested search text")
         elif count > 1:
             blue_text(
-                f"{emoji('✅')} Showing {count} {resource} paragraphs matching the requested search text.")
+                f"{emoji('✅')}  Showing {count} {resource} paragraphs matching the requested search text.")
