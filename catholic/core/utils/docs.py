@@ -18,3 +18,16 @@ def paragraph_help():
               --p "101, 103 - 105, 110, 111".
 
               """
+
+
+def search_help():
+    return """
+              Search this resource for the given string. Currently the search functionality is very limited.
+              catholic-cli looks up for an exact match. More NLP based search features are on the way!
+              
+              Examples:
+              
+              --search "the eucharist"
+              
+              --s "the eucharist" 
+           """
