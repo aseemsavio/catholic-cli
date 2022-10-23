@@ -7,7 +7,7 @@ from catholic.core.utils.docs import welcome_text
 __version__ = version
 
 
-@click.group(help=welcome_text())
+@click.group(help=welcome_text(__version__))
 @click.version_option(__version__)  # will read the version from setup.py
 @click.pass_context
 def cli(ctx: click.Context):

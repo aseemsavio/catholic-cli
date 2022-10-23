@@ -33,12 +33,12 @@ def search_help_text():
            """
 
 
-def welcome_text():
-    return """
+def welcome_text(version):
+    return f"""
 
               Vivo Christo Rey!
               
-              Welcome to The Catholic Command Line Interface,
+              Welcome to The Catholic Command Line Interface (v{version}),
               an awesome Catholic Knowledge Repository with a powerful Querying Engine, built for 
               Catholic Theologians, Scholars, and Students.
               
