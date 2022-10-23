@@ -1,8 +1,8 @@
 import click
 
-from catholic.commands.canon_law import canon
+from catholic.commands.canon import canon
 from catholic.commands.catechism import catechism
-from catholic.commands.roman_missal import missal
+from catholic.commands.missal import missal
 
 
 def register_commands(group: click.Group):
