@@ -1,11 +1,13 @@
 from setuptools import setup, find_packages
 
+from version import version
+
 with open("README.md", "r") as readme_file:
     readme = readme_file.read()
 
 setup(
     name="catholic-cli",
-    version="0.0.6",
+    version=version,
     description="A Command Line Utility for Accessing Information Related to The Catholic Church",
     long_description=readme,
     long_description_content_type='text/markdown',

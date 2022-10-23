@@ -31,3 +31,16 @@ def search_help_text():
               
               --s "the eucharist" 
            """
+
+
+def welcome_text():
+    return """
+
+              Vivo Christo Rey!
+              
+              Welcome to The Catholic Command Line Interface,
+              an awesome Catholic Knowledge Repository with a powerful Querying Engine, built for 
+              Catholic Theologians, Scholars, and Students.
+              
+              Say hello to the creator: Aseem Savio (aseemsavio3@gmail.com)
+           """
