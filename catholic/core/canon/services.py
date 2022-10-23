@@ -57,7 +57,7 @@ def display_canon_law(canon_law_dict, law):
         canon_law = get_canon_law_by_id(int(law), canon_law_dict)
         display_laws_and_sub_laws(canon_law)
     except IndexError:
-        error(f"{emoji('🙁')}There is no Canon Law with ID: {law}")
+        error(f"{emoji('🙁')} There is no Canon Law with ID: {law}")
 
 
 def display_canon_laws(canon_law_dict: list[dict]):

@@ -66,18 +66,18 @@ def get_platform():
     return platform.system()
 
 
-def emoji(emoji_literal):
+def emoji(emoji_literal, default=""):
     """
-    Returns the same emoji (with spaces in the front and back) if emojis are supported on the current platform.
-    None if not.
+    Returns the same emoji if emojis are supported on the current platform. Default text if not.
+    :param default: Default string to display in place of the emoji in unsupported OSes.
     :param emoji_literal:
     :return:
     """
     plt = get_platform()
     if plt == "Darwin" or plt == "Linux":
-        return f" {emoji_literal} "
+        return emoji_literal
     else:
-        return ""
+        return default
 
 
 def show_matched_para_count(resource: str, matched: list[dict], para: bool = False, search_str: bool = False):

@@ -22,7 +22,7 @@ def execute(law, search):
                 display_canon_laws(matched_laws)
                 show_matched_para_count(resource="Canon Law", matched=matched_laws, para=True)
             except Exception:
-                error(f"{emoji('🙁')}Could not decode the query: {law}")
+                error(f"{emoji('🙁')} Could not decode the query: {law}")
     # --s or --search is found in the command
     elif search:
         try:
@@ -30,4 +30,4 @@ def execute(law, search):
             display_canon_laws(matched_laws)
             show_matched_para_count(resource="Canon Law", matched=matched_laws, search_str=True)
         except Exception:
-            error(f"{emoji('🙁')}Could not decode the search string: {search}")
+            error(f"{emoji('🙁')} Could not decode the search string: {search}")
