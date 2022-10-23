@@ -1,6 +1,6 @@
 import click
 
-from catholic.core.catechism.catechism import execute_catechism_command
+from catholic.core.catechism.catechism import execute
 from catholic.core.utils.docs import paragraph_help, search_help
 
 
@@ -9,7 +9,7 @@ from catholic.core.utils.docs import paragraph_help, search_help
 @click.option("--paragraph", "--p", default=None, help=paragraph_help())
 @click.option("--search", "--s", help=search_help())
 def catechism(ctx: click.Context, paragraph, search):
-    execute_catechism_command(paragraph, search)
+    execute(paragraph, search)
 
 
 @click.command(help="- Alias to Query the Catechism of The Catholic Church.")
@@ -17,4 +17,4 @@ def catechism(ctx: click.Context, paragraph, search):
 @click.option("--paragraph", "--p", default=None, help=paragraph_help())
 @click.option("--search", "--s", help=search_help())
 def c(ctx: click.Context, paragraph, search):
-    execute_catechism_command(paragraph, search)
+    execute(paragraph, search)
