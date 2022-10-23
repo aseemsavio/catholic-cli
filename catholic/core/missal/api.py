@@ -1,0 +1,35 @@
+from catholic.core.missal.services import get_roman_missal_paragraphs_with_given_substring, \
+    get_roman_missal_paragraphs_by_numbers, display_missal_paragraph, display_missal_paragraphs
+from catholic.core.utils.files import load_pickle_by_name
+from catholic.core.utils.console import error, show_matched_para_count, emoji
+from catholic.core.utils.query import decode_query
+
+
+def execute(missal_id, search):
+    missal_dict = load_pickle_by_name("girm.pickle")
+
+    # --p or --paragraph is found in the command
+    if missal_id:
+
+        # Example: --p 101
+        if missal_id.isdigit():
+            display_missal_paragraph(missal_dict, missal_id)
+
+        # Example: --p "1,2,5-8"
+        else:
+            try:
+                missal_ids = decode_query(missal_id)
+                matched_paragraphs = get_roman_missal_paragraphs_by_numbers(missal_ids, missal_dict)
+                display_missal_paragraphs(matched_paragraphs)
+                show_matched_para_count(resource="Roman Missal", matched=matched_paragraphs, para=True)
+            except Exception:
+                error(f"{emoji('🙁')} Could not decode the query: {missal_id}")
+
+    # --s or --search is found in the command
+    elif search:
+        try:
+            matched_missal_paragraphs = get_roman_missal_paragraphs_with_given_substring(search, missal_dict)
+            display_missal_paragraphs(matched_missal_paragraphs)
+            show_matched_para_count(resource="Catechism", matched=matched_missal_paragraphs, search_str=True)
+        except Exception:
+            error(f"{emoji('🙁')} Could not decode the search string: {search}")

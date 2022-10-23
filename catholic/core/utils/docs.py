@@ -1,4 +1,4 @@
-def paragraph_help():
+def paragraph_help_text():
     return """
               Query using Paragraph Number. This takes in a variety of inputs.
 
@@ -20,7 +20,7 @@ def paragraph_help():
               """
 
 
-def search_help():
+def search_help_text():
     return """
               Search this resource for the given string. Currently the search functionality is very limited.
               catholic-cli looks up for an exact match. More NLP based search features are on the way!

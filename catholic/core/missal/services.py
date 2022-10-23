@@ -1,3 +1,4 @@
+from catholic.core.utils.console import blue_text, markdown, emoji, error
 from catholic.core.utils.strings import string_contains
 
 
@@ -21,11 +22,34 @@ def get_roman_missal_paragraphs_by_numbers(missal_ids: list[int], missal: list[d
     return [para for para in missal if para["id"] in missal_ids]
 
 
-def get_roman_missal_paragraphs_with_given_substring(substring: str, missal: list[dict]) -> list[int]:
+def get_roman_missal_paragraphs_with_given_substring(substring: str, missal: list[dict]) -> list[dict]:
     """
 
     :param substring:
     :param missal:
     :return:
     """
-    return [para["id"] for para in missal if string_contains(substring, para["text"])]
+    return [para for para in missal if string_contains(substring, para["text"])]
+
+
+def display_missal_paragraph(missal_dict, missal_id):
+    try:
+        paragraph = get_roman_missal_by_number(int(missal_id), missal_dict)
+        display_paragraph(paragraph)
+    except IndexError:
+        error(f"{emoji('🙁')} The Missal does not have a section with ID: {missal_id}")
+
+
+def display_missal_paragraphs(paragraphs: list[dict]):
+    """
+
+    :param paragraphs:
+    :return:
+    """
+    for paragraph in paragraphs:
+        display_paragraph(paragraph)
+
+
+def display_paragraph(paragraph):
+    blue_text(f"General Instruction of The Roman Missal - Paragraph: {paragraph['id']}")
+    markdown(paragraph["text"])

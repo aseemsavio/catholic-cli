@@ -13,6 +13,7 @@ def execute(paragraph, search):
     :param paragraph: Paragraph_number
     :return: None
     """
+
     catechism_dict = load_pickle_by_name("catechism.pickle")
 
     # --p or --paragraph is found in the command
@@ -39,5 +40,4 @@ def execute(paragraph, search):
             display_catechism_paragraphs(matched_catechism_paragraphs)
             show_matched_para_count(resource="Catechism", matched=matched_catechism_paragraphs, search_str=True)
         except Exception:
-            error_message = f"🙁 Could not decode the search string: {search}"
-            error(error_message)
+            error(f"{emoji('🙁')} Could not decode the search string: {search}")
