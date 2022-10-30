@@ -29,7 +29,8 @@ setup(
     ],
     install_requires=[
         "Click>=7",
-        "rich>=12"
+        "rich>=12",
+        "Whoosh==2.7.4"
     ],
     entry_points={
         'console_scripts': [
