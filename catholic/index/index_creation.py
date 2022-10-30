@@ -21,5 +21,4 @@ def create_indices_for_catholic_data():
                  write_canon_data_to_index,
                  load_pickle_by_name("canon.pickle"))
 
-
-create_indices_for_catholic_data()
+# create_indices_for_catholic_data()
