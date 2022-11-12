@@ -1,6 +1,6 @@
 import os
 
-from whoosh import index
+from whoosh import index, qparser
 from whoosh.analysis import StemmingAnalyzer
 from whoosh.fields import Schema, ID, TEXT
 
@@ -23,31 +23,7 @@ def canon_schema():
                   )
 
 
-def write_catechism_data_to_index(data, writer):
-    for d in data:
-        writer.add_document(id=str(d["id"]).encode("utf-8").decode("utf-8"), text=str(d["text"]))
-    writer.commit()
-
-
-def write_missal_data_to_index(data, writer):
-    for d in data:
-        writer.add_document(id=str(d["id"]).encode("utf-8").decode("utf-8"), text=str(d["text"]))
-    writer.commit()
-
-
-def write_canon_data_to_index(data, writer):
-    for d in data:
-        text = ""
-        if "text" in d:
-            text = str(d["text"])
-        elif "sections" in d:
-            for s in d["sections"]:
-                text += str(s["text"] + " ")
-        writer.add_document(id=str(d["id"]).encode("utf-8").decode("utf-8"), text=text)
-    writer.commit()
-
-
-def create_index(index_dir, schema, write_to_index_func, data):
+def create_index(index_dir: str, schema, write_to_index_func, data):
     # create empty index directory
     if not os.path.exists(index_dir):
         os.mkdir(index_dir)
@@ -58,3 +34,43 @@ def create_index(index_dir, schema, write_to_index_func, data):
 
     # Lastly, let us fill this index with the data from the catechism data.
     write_to_index_func(data, writer)
+
+
+def _search(dir_name, search_fields, search_query) -> list:
+    ix = index.open_dir(dir_name)
+    schema = ix.schema
+
+    # og = qparser.OrGroup.factory(0.9)
+    mp = qparser.MultifieldParser(search_fields, schema)
+
+    q = mp.parse(search_query)
+
+    with ix.searcher() as s:
+        return [int(r.fields()["id"]) for r in s.search(q, terms=True, limit=2000)]
+
+
+def search_catechism(search_query: str):
+    """
+    Searches Catechism
+    :param search_query: Query to search
+    :return: IDs of the matched paragraphs
+    """
+    return _search("catechism_index", ["text"], str(search_query))
+
+
+def search_canon(search_query: str):
+    """
+    Searches Canon
+    :param search_query: Query to search
+    :return: IDs of the matched paragraphs
+    """
+    return _search("canon_index", ["text"], str(search_query))
+
+
+def search_missal(search_query: str):
+    """
+    Searches Missal
+    :param search_query: Query to search
+    :return: IDs of the matched paragraphs
+    """
+    return _search("missal_index", ["text"], str(search_query))
