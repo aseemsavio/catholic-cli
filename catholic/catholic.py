@@ -1,8 +1,8 @@
 import click
 
-from version import version
 from catholic.commands import register_commands
 from catholic.core.utils.docs import welcome_text
+from catholic.version import version
 
 __version__ = version
 

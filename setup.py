@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-from version import version
+from catholic.version import version
 
 with open("README.md", "r") as readme_file:
     readme = readme_file.read()
@@ -21,7 +21,8 @@ setup(
     data_files=[("catholic/pickles", ["catholic/pickles/canon.pickle",
                                       "catholic/pickles/catechism.pickle",
                                       "catholic/pickles/girm.pickle"
-                                      ])],
+                                      ])
+                ],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
