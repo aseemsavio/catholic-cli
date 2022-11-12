@@ -21,7 +21,17 @@ setup(
     data_files=[("catholic/pickles", ["catholic/pickles/canon.pickle",
                                       "catholic/pickles/catechism.pickle",
                                       "catholic/pickles/girm.pickle"
-                                      ])
+                                      ]),
+                ("catholic/index", ["catholic/index/canon_index/_MAIN_1.toc",
+                                    "catholic/index/canon_index/MAIN_jcfftbwmodlertj6.seg",
+                                    "catholic/index/canon_index/MAIN_WRITELOCK",
+                                    "catholic/index/catechism_index/_MAIN_1.toc",
+                                    "catholic/index/catechism_index/MAIN_WRITELOCK",
+                                    "catholic/index/catechism_index/MAIN_x9ce2efhbz9dvnt0.seg",
+                                    "catholic/index/missal_index/_MAIN_1.toc",
+                                    "catholic/index/missal_index/MAIN_jg57nqsiitr2bdya.seg",
+                                    "catholic/index/missal_index/MAIN_WRITELOCK"
+                                    ])
                 ],
     classifiers=[
         "Programming Language :: Python :: 3",
