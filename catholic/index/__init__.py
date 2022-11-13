@@ -55,7 +55,8 @@ def search_catechism(search_query: str):
     :param search_query: Query to search
     :return: IDs of the matched paragraphs
     """
-    return _search("catechism_index", ["text"], str(search_query))
+    this_dir, _ = os.path.split(__file__)
+    return _search(f"{this_dir}/catechism_index", ["text"], str(search_query))
 
 
 def search_canon(search_query: str):
@@ -64,7 +65,8 @@ def search_canon(search_query: str):
     :param search_query: Query to search
     :return: IDs of the matched paragraphs
     """
-    return _search("canon_index", ["text"], str(search_query))
+    this_dir, _ = os.path.split(__file__)
+    return _search(f"{this_dir}/canon_index", ["text"], str(search_query))
 
 
 def search_missal(search_query: str):
@@ -73,4 +75,5 @@ def search_missal(search_query: str):
     :param search_query: Query to search
     :return: IDs of the matched paragraphs
     """
-    return _search("missal_index", ["text"], str(search_query))
+    this_dir, _ = os.path.split(__file__)
+    return _search(f"{this_dir}/missal_index", ["text"], str(search_query))
