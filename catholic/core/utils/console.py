@@ -1,3 +1,5 @@
+import platform
+
 import rich
 from rich.console import Console
 from rich.markdown import Markdown
@@ -51,3 +53,54 @@ def markdown(text: str):
     md = Markdown(text, style="green")
     console.print(md)
     console.line()
+
+
+def get_platform():
+    """
+    Gets the OS this app is running on
+    :return:
+    Linux: Linux
+    Mac: Darwin
+    Windows: Windows
+    """
+    return platform.system()
+
+
+def emoji(emoji_literal, default=""):
+    """
+    Returns the same emoji if emojis are supported on the current platform. Default text if not.
+    :param default: Default string to display in place of the emoji in unsupported OSes.
+    :param emoji_literal:
+    :return:
+    """
+    plt = get_platform()
+    if plt == "Darwin" or plt == "Linux":
+        return emoji_literal
+    else:
+        return default
+
+
+def show_matched_para_count(resource: str, matched: list[dict], para: bool = False, search_str: bool = False):
+    """
+    Displays matched laws count
+    :return:
+    """
+
+    count = len(matched)
+
+    if para:
+        if count == 0:
+            red_text(f"{emoji('❌')}  There are no results for the requested paragraph ID(s).")
+        elif count == 1:
+            blue_text(f"{emoji('✅')}  Showing 1 {resource} paragraph matching ID: {matched[0]['id']}")
+        elif count > 1:
+            blue_text(
+                f"{emoji('✅')}  Showing {count} {resource} paragraphs matching IDs - {[p['id'] for p in matched]}.")
+    elif search_str:
+        if count == 0:
+            red_text(f"{emoji('❌')}  There are no results for the requested search text.")
+        elif count == 1:
+            blue_text(f"{emoji('✅')}  Showing 1 {resource} paragraph matching the requested search text")
+        elif count > 1:
+            blue_text(
+                f"{emoji('✅')}  Showing {count} {resource} paragraphs matching the requested search text.")

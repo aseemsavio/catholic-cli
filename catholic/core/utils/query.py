@@ -5,6 +5,14 @@ from catholic.core.utils.strings import remove_white_spaces, destructure_comma_s
 def decode_query(query: str) -> list[int]:
     """
     Decodes the query string into a list of integers.
+    Example queries:
+
+    Input       Explanation                 Output
+
+    1,2,3       comma separated             [1, 2, 3]
+    1-3         x to y                      [1, 2, 3]
+    1,2,3-5     combination of the above    [1, 2, 3, 4, 5]
+
     :param query: query string
     :return: list of ints.
     """

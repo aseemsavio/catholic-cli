@@ -1,15 +1,11 @@
 import click
 
-from catholic.commands.canon_law import canon, cl
-from catholic.commands.catechism import catechism, c
-from catholic.commands.roman_missal import missal, m
+from catholic.commands.canon import canon
+from catholic.commands.catechism import catechism
+from catholic.commands.missal import missal
 
 
 def register_commands(group: click.Group):
-    group.add_command(catechism)
-    group.add_command(c)
-    group.add_command(canon)
-    group.add_command(cl)
-    group.add_command(missal)
-    group.add_command(m)
-
+    group.add_command(cmd=catechism, name="catechism")
+    group.add_command(cmd=canon, name="canon")
+    group.add_command(cmd=missal, name="missal")

@@ -1,3 +1,4 @@
+from catholic.core.utils.console import markdown, blue_text, error, emoji
 from catholic.core.utils.strings import string_contains
 
 
@@ -29,3 +30,27 @@ def get_catechism_paragraphs_with_given_substring(substring: str, catechism: lis
     :return:
     """
     return [para for para in catechism if string_contains(substring, para["text"])]
+
+
+def display_catechism_paragraph(catechism_dict, paragraph):
+    try:
+        paragraph = get_catechism_by_paragraph(int(paragraph), catechism_dict)
+        blue_text(f"Catechism Paragraph: {paragraph['id']}")
+        markdown(paragraph["text"])
+    except IndexError:
+        error(f"{emoji('🙁')} The Catechism does not have a paragraph with ID: {paragraph}")
+
+
+def display_catechism_paragraphs(paragraphs: list[dict]):
+    """
+
+    :param paragraphs:
+    :return:
+    """
+    for paragraph in paragraphs:
+        display_paragraph(paragraph)
+
+
+def display_paragraph(paragraph):
+    blue_text(f"Catechism Paragraph: {paragraph['id']}")
+    markdown(paragraph["text"])
