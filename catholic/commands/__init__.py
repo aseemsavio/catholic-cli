@@ -7,10 +7,5 @@ from catholic.commands.missal import missal
 
 def register_commands(group: click.Group):
     group.add_command(cmd=catechism, name="catechism")
-    group.add_command(cmd=catechism, name="cm")
-
     group.add_command(cmd=canon, name="canon")
-    group.add_command(cmd=canon, name="cn")
-
     group.add_command(cmd=missal, name="missal")
-    group.add_command(cmd=missal, name="ml")
