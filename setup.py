@@ -16,7 +16,7 @@ setup(
     url="https://github.com/aseemsavio/catholic-cli/blob/master/README.md",
     license="MIT",
     keywords="christianity, catholicism, catholic, christian, religion, cli",
-    packages=find_packages(),
+    packages=find_packages(exclude=["tests", "tests.*"]),
     include_package_data=True,
     data_files=[("catholic/pickles", ["catholic/pickles/canon.pickle",
                                       "catholic/pickles/catechism.pickle",
