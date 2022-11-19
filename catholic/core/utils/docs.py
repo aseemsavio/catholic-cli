@@ -42,5 +42,5 @@ def welcome_text(version):
               an awesome Catholic Knowledge Repository with a powerful Querying Engine, built for 
               Catholic Theologians, Scholars, and Students.
               
-              Say hello to the creator: Aseem Savio (aseemsavio3@gmail.com)
+              Say hello to the creator: Aseem Savio (@aseem_savio)
            """
