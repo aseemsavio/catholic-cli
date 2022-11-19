@@ -14,131 +14,23 @@ Catholic information. The tool currently has the following functionalities:
 The general syntax for using the tool is as follows.
 
 ```
-catholic <resource> <options>
+<command> <sub-command> <options>
 ```
 
-A resource is either `catechism`, or `canon` or `missal`. An example for an option would be
-`--paragraph` or it's shortform `--p`. You give values for an option like so: `--p 101`, where `101` is the value passed
-to the option `--p`.
+The default command in this CLI is `catholic`. All the sub commands are grouped under it.
 
-The allowed options are as follows.
+The allowed sub-commands are:
 
-| Option        | Short Form | Description                                                                                               | Examples                                                                                                                                    | 
-|---------------|------------|-----------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| `--paragraph` | `--p`      | To Query Paragraphs                                                                                       | `--paragraph 101` <br/> `--paragraph 1,2` <br/> `--paragraph 1,2,6-10` <br/> `--p 101` <br/> `--p 101` <br/> `--p 1,2` <br/> `--p 1,2,6-10` |   
-| `--search`    | `--s`      | To Look Up a given search string in Catechism / Canon / Missal.  <br/>  <br/> This is not case sensitive. | `--search "Christ"` <br/> `--s "Christ The King"`                                                                                           |   
+1. `catechism`
+2. `missal`
+3. `canon`
 
-The following command gives you paragraph 101 of the Catechism.
+The options currently supported by the `catholic-cli` are:
 
-```
-catholic catechism --p 101
-```
+|     | Option        | Short Form | Data Type | Description                             | Commands/sub-commands that allow this option | Examples                                                                      |
+|-----|---------------|------------|-----------|-----------------------------------------|----------------------------------------------|-------------------------------------------------------------------------------|
+| 1   | `--paragraph` | `--p`      | INT, TEXT | Displays Paragraph(s) with the given ID | `catechism`<br/>`canon`<br/>`missal`         | `--paragraph 10`<br/>`--p 10`<br/> `--p 1-5`<br/>`--p 1,2`<br/> `--p 1,2,4-5` |
+| 2   | `--search`    | `--s`      | TEXT      | Search for the given string             | `catechism`<br/>`canon`<br/>`missal`         | `--search "Christ"`<br/>`--s "eucharist"`<br/>`--s "The Church"`              |
+| 3   | `--help`      |            | BOOLEAN   | Get help text                           | `catholic`                                   | `--help`                                                                      |
+| 4   | `--version`   |            | BOOLEAN   | Displays the version of this CLI        | `catholic`                                   | `--version`                                                                   |
 
-The option `--p` or `--paragraph` takes in an integer (`101`) or a query string (`1,2,3-6` or `1,2` or `3-5`).
-The query string can be a comma separated integers and, or ranges. For example:
-
-```
-catholic catechism --p 1,2,4-6
-```
-
-The above query would display paragraphs 1, 2, 4, 5, and 6. If you intend to add spaces in the query string, you may
-do so within double quotes as follows.
-
-```
-catholic catechism --p "1, 2, 4 - 6"
-```
-
-Here are some example commands.
-
-### Catechism
-
-```
-catholic catechism --paragraph 101
-```
-
-The tool also allows a short form for power users.
-
-```
-catholic c --p 101
-```
-
-You can provide a query string _instead of_ an integer to `--p` or `--paragraph` like so:
-
-```
-catholic catechism --p 1,2,4-6
-```
-
-You can search the Catechism for words or phrases like so. The short form `--s` can be used
-instead of `--search`.
-
-```
-catholic catechism --search eucharist
-```
-
-For searching phrases that include spaces, they must be included within quotes.
-
-```
-catholic c --s "child of"
-```
-
-### Roman Missal
-
-```
-catholic missal --p 101
-```
-
-Shortform for the same would be:
-
-```
-catholic m --p 101
-```
-
-You can query the Missal like so:
-
-```
-catholic missal --p 1,2,3,77-79
-```
-
-You can search the Missal for words or phrases like so. The short form `--s` can be used
-instead of `--search`.
-
-```
-catholic missal --search eucharist
-```
-
-For searching phrases that include spaces, they must be included within quotes.
-
-```
-catholic m --s "child of"
-```
-
-### Canon Law
-
-```
-catholic canon --p 101
-```
-
-Shortform for the same would be:
-
-```
-catholic cl --p 101
-```
-
-You can query the Canon Law like so:
-
-```
-catholic canon --p 1,2,3,77-79
-```
-
-You can search the Canon Law for words or phrases like so. The short form `--s` can be used
-instead of `--search`.
-
-```
-catholic canon --search eucharist
-```
-
-For searching phrases that include spaces, they must be included within quotes.
-
-```
-catholic cl --s "child of"
-```
