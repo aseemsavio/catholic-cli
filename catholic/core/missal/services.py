@@ -1,4 +1,4 @@
-from catholic.core.utils.console import blue_text, markdown, emoji, error
+from catholic.core.utils.console import markdown, error
 from catholic.core.utils.strings import string_contains
 
 
@@ -37,7 +37,7 @@ def display_missal_paragraph(missal_dict, missal_id):
         paragraph = get_roman_missal_by_number(int(missal_id), missal_dict)
         display_paragraph(paragraph)
     except IndexError:
-        error(f"{emoji('🙁')} The Missal does not have a section with ID: {missal_id}")
+        error(f"The Missal does not have a section with ID: {missal_id}")
 
 
 def display_missal_paragraphs(paragraphs: list[dict]):
@@ -51,5 +51,4 @@ def display_missal_paragraphs(paragraphs: list[dict]):
 
 
 def display_paragraph(paragraph):
-    blue_text(f"General Instruction of The Roman Missal - Paragraph: {paragraph['id']}")
-    markdown(paragraph["text"])
+    markdown(text=paragraph["text"], heading=f"General Instruction of The Roman Missal - Paragraph: {paragraph['id']}")

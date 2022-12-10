@@ -1,7 +1,7 @@
 from catholic.core.catechism.services import get_catechism_paragraphs_with_given_substring, \
     get_catechism_paragraphs_by_paragraph_ids, display_catechism_paragraphs, display_catechism_paragraph
 from catholic.core.utils.files import load_pickle_by_name
-from catholic.core.utils.console import error, show_matched_para_count, emoji
+from catholic.core.utils.console import error, show_matched_para_count
 
 from catholic.core.utils.query import decode_query
 
@@ -31,7 +31,7 @@ def execute(paragraph, search):
                 display_catechism_paragraphs(matched_paragraphs)
                 show_matched_para_count(resource="Catechism", matched=matched_paragraphs, para=True)
             except Exception:
-                error(f"{emoji('🙁')} Could not decode the query: {paragraph}")
+                error(f"Could not decode the query: {paragraph}")
 
     # --s or --search is found in the command
     elif search:
@@ -40,4 +40,4 @@ def execute(paragraph, search):
             display_catechism_paragraphs(matched_catechism_paragraphs)
             show_matched_para_count(resource="Catechism", matched=matched_catechism_paragraphs, search_str=True)
         except Exception:
-            error(f"{emoji('🙁')} Could not decode the search string: {search}")
+            error(f"Could not decode the search string: {search}")
