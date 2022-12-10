@@ -42,6 +42,7 @@ setup(
         'typer[all]>=0.7.0',
         "Click>=7",
         "rich>=12",
+        "questionary>=1.10.0",
         "Whoosh==2.7.4"
     ],
     entry_points={

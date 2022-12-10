@@ -1,4 +1,5 @@
 from catholic.commands import register_commands
+from catholic.core.utils.console import display_welcome_text
 from catholic.version import version
 from typer import Typer, Context
 
@@ -12,8 +13,9 @@ cli = Typer()
 def catholic_features_callback(ctx: Context):
     # Execute this only if there is no sub command.
     # https://typer.tiangolo.com/tutorial/commands/context/#exclusive-executable-callback
+
     if ctx.invoked_subcommand is None:
-        print(f"callback reached {ctx.obj}")
+        display_welcome_text()
 
 
 register_commands(cli)
