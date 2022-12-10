@@ -58,7 +58,7 @@ def markdown(text: str, heading: str = None):
     console = Console()
     if heading:
         console.print(f"    [bold bright_white]{heading}[/bold bright_white]")
-    console.print(Padding(Markdown(text, style="gold3"), (0, 4, 1, 4)))
+    console.print(Padding(Markdown(text, style="gold3", justify="full"), (0, 4, 1, 4)))
     console.line()
 
 

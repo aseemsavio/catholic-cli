@@ -33,6 +33,6 @@ def execute(missal_id, search):
         try:
             matched_missal_paragraphs = get_roman_missal_paragraphs_with_given_substring(search, missal_dict)
             display_missal_paragraphs(matched_missal_paragraphs)
-            show_matched_para_count(resource="Catechism", matched=matched_missal_paragraphs, search_str=True)
+            show_matched_para_count(resource="Roman Missal", matched=matched_missal_paragraphs, search_str=True)
         except Exception:
             error(f"Could not decode the search string: {search}")
