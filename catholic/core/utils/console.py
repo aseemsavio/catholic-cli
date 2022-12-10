@@ -26,7 +26,7 @@ def blue_boxed_text(text: str):
     :return: None
     """
     console = Console()
-    console.print(Panel(text, title="Catholicism Rocks!", title_align="left", highlight=True, border_style="cyan1"))
+    console.print(Panel(text, title="Gaudete!", title_align="left", highlight=True, border_style="cyan1"))
     console.line()
 
 
