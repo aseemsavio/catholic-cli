@@ -39,6 +39,7 @@ setup(
         "Operating System :: OS Independent",
     ],
     install_requires=[
+        'typer[all]>=0.7.0',
         "Click>=7",
         "rich>=12",
         "Whoosh==2.7.4"
