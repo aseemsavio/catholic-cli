@@ -1,3 +1,5 @@
+from rich.console import Console
+
 from catholic.core.missal.services import \
     get_roman_missal_paragraphs_with_given_substring, \
     get_roman_missal_paragraphs_by_numbers, \
@@ -5,11 +7,19 @@ from catholic.core.missal.services import \
     display_missal_paragraphs
 from catholic.core.utils.files import load_pickle_by_name
 from catholic.core.utils.console import error, show_matched_para_count
+from catholic.core.utils.interact import prompt_para_or_search
 from catholic.core.utils.query import decode_query
 
 
-def execute(missal_id, search):
+def execute(missal_id, search, search_by: str = None):
+    missal_id, search = prompt_para_or_search(missal_id,
+                                              search,
+                                              search_by,
+                                              "Missal",
+                                              "The Roman Missal")
+
     missal_dict = load_pickle_by_name("girm.pickle")
+    Console().line()
 
     # --p or --paragraph is found in the command
     if missal_id:

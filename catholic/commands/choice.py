@@ -14,67 +14,59 @@ def interactive_cli():
     :return: None
     """
 
-    # root = InteractiveCli(
-    #     messages=[
-    #         Resource("catechism", "The Catechism of The Catholic Church", [SearchBy.Para, SearchBy.Text]),
-    #         Resource("canon", "The Canon Law of The Church", [SearchBy.Para, SearchBy.Text]),
-    #         Resource("missal", "The Roman Missal", [SearchBy.Para, SearchBy.Text]),
-    #     ]
-    # )
+    root = InteractiveCli(
+        messages=[
+            Resource("catechism", "The Catechism of The Catholic Church", [SearchBy.Para, SearchBy.Text]),
+            Resource("canon", "The Canon Law of The Church", [SearchBy.Para, SearchBy.Text]),
+            Resource("missal", "The Roman Missal", [SearchBy.Para, SearchBy.Text]),
+        ]
+    )
 
     ###
-    root = {
-        "messages": {
-            "catechism": "The Catechism of The Catholic Church",
-            "canon": "The Canon Law of The Church",
-            "missal": "The Roman Missal"
-        }
-    }
+    # root = {
+    #     "messages": {
+    #         "catechism": "The Catechism of The Catholic Church",
+    #         "canon": "The Canon Law of The Church",
+    #         "missal": "The Roman Missal"
+    #     }
+    # }
 
-    by_para = "Search by Paragraph ID(s)"
-    by_text = "Search by Text"
+    # by_para = "Search by Paragraph ID(s)"
+    # by_text = "Search by Text"
 
     resource = q.select(
         "What do you want to search?",
-        choices=[
-            root["messages"]["catechism"],
-            root["messages"]["canon"],
-            root["messages"]["missal"]
-        ]
+        choices=[r.long_name for r in root.messages]
     ).ask()
 
-    # Get the key of the message. Ex: if resource from the above operation is "The Roman Missal",
-    # the result would be "missal" (it's key)
-    resource_name = [k for k, v in root["messages"].items() if v == resource][0]
+    resource_name = [r.short_name for r in root.messages if resource == r.long_name][0]
 
     search_by = q.select(
         "How do you want to search?",
-        choices=[
-            by_para,
-            by_text
-        ]
+        choices=[str(v.value) for v in
+                 [r for r in root.messages if r.short_name == resource_name][0].search_by_possibilities]
     ).ask()
 
     para, search_text = None, None
 
-    if search_by == by_para:
-        para = q.text(f"Enter the {str(resource_name).capitalize()} paragraphs you wish to search: ").ask()
-    else:
-        search_text = q.text(f"Enter the exact text you wish to search in {resource}: ").ask()
+    # if search_by == by_para:
+    #     para = q.text(f"Enter the {str(resource_name).capitalize()} paragraphs you wish to search: ").ask()
+    # else:
+    #     search_text = q.text(f"Enter the exact text you wish to search in {resource}: ").ask()
 
     if resource_name == "catechism":
-        catechism_api.execute(paragraph=para, search=search_text)
+        catechism_api.execute(paragraph=None, search=None, search_by=SearchBy(search_by).name)
 
     elif resource_name == "canon":
-        canon_api.execute(law=para, search=search_text)
+        canon_api.execute(law=None, search=None, search_by=SearchBy(search_by).name)
 
     elif resource_name == "missal":
-        missal_api.execute(missal_id=para, search=search_text)
+        missal_api.execute(missal_id=None, search=None, search_by=SearchBy(search_by).name)
 
 
 class SearchBy(Enum):
-    Para = 1
-    Text = 2
+    Para = "Search by Paragraph ID(s)"
+    Text = "Search by Text"
 
 
 @dataclass

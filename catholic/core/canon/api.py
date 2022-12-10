@@ -1,12 +1,22 @@
+from rich.console import Console
+
 from catholic.core.canon.services import get_canon_laws_with_given_substring, \
     get_canon_law_paragraphs_by_paragraph_ids, display_canon_law, display_canon_laws
 from catholic.core.utils.files import load_pickle_by_name
 from catholic.core.utils.console import error, show_matched_para_count
+from catholic.core.utils.interact import prompt_para_or_search
 from catholic.core.utils.query import decode_query
 
 
-def execute(law, search):
+def execute(law, search, search_by: str = None):
+    law, search = prompt_para_or_search(law,
+                                        search,
+                                        search_by,
+                                        "Canon",
+                                        "The Canon Law")
+
     canon_law_dict = load_pickle_by_name("canon.pickle")
+    Console().line()
 
     # --p or --paragraph is found in the command
     if law:

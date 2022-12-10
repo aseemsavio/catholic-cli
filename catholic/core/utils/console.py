@@ -118,6 +118,7 @@ def show_matched_para_count(resource: str, matched: list[dict], para: bool = Fal
 
 def display_welcome_text():
     c = Console()
+    c.line()
     welcome_text = f"\n[bold bright_white]Catholic Command Line Interface[/bold bright_white] - An Awesome Catholic Theological Knowledge Base.\n" \
                    f"                         [dim]Version[/dim]     [gold3]{version}[/gold3]\n" \
                    f"                       [dim]Developer[/dim]     [gold3]Aseem Savio[/gold3]\n" \
@@ -126,3 +127,4 @@ def display_welcome_text():
                   title="Vivo Christo Rey!",
                   subtitle="Sancta Maria, Mater Dei, ora pro nobis!",
                   border_style="gold3", ))
+    c.line()
