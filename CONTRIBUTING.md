@@ -9,5 +9,5 @@ pip3 install --editable .
 To create a distributable:
 
 ```
-python3 setup.py sdist bidist_wheel
+python3 setup.py sdist bdist_wheel
 ```

@@ -1,4 +1,4 @@
-from catholic.core.utils.console import blue_text, markdown, error, emoji
+from catholic.core.utils.console import markdown, error
 from catholic.core.utils.strings import string_contains
 
 
@@ -44,12 +44,10 @@ def get_canon_laws_with_given_substring(substring: str, canon: list[dict]) -> li
 
 def display_laws_and_sub_laws(canon_law):
     if "text" in canon_law:
-        blue_text(f"Canon Law: {canon_law['id']}")
-        markdown(canon_law["text"])
+        markdown(text=canon_law["text"], heading=f"Canon Law: {canon_law['id']}")
     elif "sections" in canon_law:
         for section in canon_law["sections"]:
-            blue_text(f"Canon Law: {canon_law['id']} :: §{section['id']}")
-            markdown(section["text"])
+            markdown(text=section["text"], heading=f"Canon Law: {canon_law['id']} :: §{section['id']}")
 
 
 def display_canon_law(canon_law_dict, law):
@@ -57,7 +55,7 @@ def display_canon_law(canon_law_dict, law):
         canon_law = get_canon_law_by_id(int(law), canon_law_dict)
         display_laws_and_sub_laws(canon_law)
     except IndexError:
-        error(f"{emoji('🙁')} There is no Canon Law with ID: {law}")
+        error(f"There is no Canon Law with ID: {law}")
 
 
 def display_canon_laws(canon_law_dict: list[dict]):
