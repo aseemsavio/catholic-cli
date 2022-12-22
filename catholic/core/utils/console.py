@@ -121,7 +121,6 @@ def display_welcome_text():
     c.line()
     welcome_text = f"\n[bold bright_white]Catholic Command Line Interface[/bold bright_white] - An Awesome Catholic Theological Knowledge Base.\n" \
                    f"                         [dim]Version[/dim]     [gold3]{version}[/gold3]\n" \
-                   f"                       [dim]Developer[/dim]     [gold3]Aseem Savio[/gold3]\n" \
                    f"                          [dim]GitHub[/dim]     [gold3]https://github.com/aseemsavio[/gold3]\n"
     c.print(Panel(Align(welcome_text, align="center"),
                   title="Vivo Christo Rey!",

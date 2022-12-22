@@ -64,3 +64,4 @@ The options currently supported by the `catholic-cli` are:
 | 3   | `--help`      |            | BOOLEAN   | Get help text                           | `catholic`                                   | `--help`                                                                  |
 | 4   | `--version`   |            | BOOLEAN   | Displays the version of this CLI        | `catholic`                                   | `--version`                                                               |
 
+Feel free to send PRs my way if you're willing to contribute to this project 🍻
