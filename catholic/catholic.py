@@ -15,9 +15,12 @@ def catholic_features_callback(ctx: Context):
     # Execute this only if there is no sub command.
     # https://typer.tiangolo.com/tutorial/commands/context/#exclusive-executable-callback
 
-    if ctx.invoked_subcommand is None:
-        display_welcome_text()
-        interactive_cli()
+    try:
+        if ctx.invoked_subcommand is None:
+            display_welcome_text()
+            interactive_cli()
+    except Exception:
+        pass
 
 
 register_commands(cli)
